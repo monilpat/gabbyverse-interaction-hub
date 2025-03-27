@@ -147,7 +147,7 @@ export function Header() {
               Get $GABBY
             </Link>
             <a 
-              href="https://t.me/RealitySpiral" 
+              href="https://t.me/reality_spiral" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center text-sm text-muted-foreground hover:text-gabby"
@@ -231,7 +231,7 @@ export function Header() {
                 Get $GABBY
               </Link>
               <a 
-                href="https://t.me/RealitySpiral" 
+                href="https://t.me/reality_spiral" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 text-muted-foreground hover:text-gabby"

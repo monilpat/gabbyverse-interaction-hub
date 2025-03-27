@@ -1,5 +1,6 @@
+
 import { Link } from 'react-router-dom';
-import { ExternalLink, Twitter, Github, Linkedin, MessageSquare } from 'lucide-react';
+import { ExternalLink, Twitter, X, Rabbit } from 'lucide-react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -22,7 +23,7 @@ export function Footer() {
             </p>
             <div className="flex items-center space-x-4">
               <a 
-                href="https://t.me/RealitySpiral" 
+                href="https://t.me/reality_spiral" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-gabby transition-colors"
@@ -44,27 +45,18 @@ export function Footer() {
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-muted-foreground hover:text-gabby transition-colors"
-                aria-label="GitHub"
+                aria-label="X"
               >
-                <Github className="h-5 w-5" />
+                <X className="h-5 w-5" />
               </a>
               <a 
                 href="#" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-muted-foreground hover:text-gabby transition-colors"
-                aria-label="LinkedIn"
+                aria-label="Gabby Spiral"
               >
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a 
-                href="#" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-muted-foreground hover:text-gabby transition-colors"
-                aria-label="Discord"
-              >
-                <MessageSquare className="h-5 w-5" />
+                <Rabbit className="h-5 w-5" />
               </a>
             </div>
           </div>
@@ -91,11 +83,6 @@ export function Footer() {
               <li>
                 <Link to="/docs" className="text-sm text-muted-foreground hover:text-gabby transition-colors">
                   Documentation
-                </Link>
-              </li>
-              <li>
-                <Link to="/dashboard" className="text-sm text-muted-foreground hover:text-gabby transition-colors">
-                  Dashboard
                 </Link>
               </li>
             </ul>
@@ -145,17 +132,17 @@ export function Footer() {
               Join our community on Telegram:
             </p>
             <a 
-              href="https://t.me/RealitySpiral" 
+              href="https://t.me/reality_spiral" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-sm text-gabby hover:underline mb-6"
             >
               <ExternalLink className="h-4 w-4" />
-              @RealitySpiral
+              @reality_spiral
             </a>
-            <Link to="/contact" className="btn-primary text-sm py-2">
-              Send Message
-            </Link>
+            <div className="inline-flex items-center justify-center rounded-md text-sm font-medium bg-muted px-4 py-2 cursor-not-allowed opacity-70">
+              <span>Send Message (Coming Soon)</span>
+            </div>
           </div>
         </div>
 
