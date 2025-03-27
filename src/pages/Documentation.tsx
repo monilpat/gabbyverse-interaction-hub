@@ -4,8 +4,7 @@ import { PageHeader } from '@/components/ui/custom/PageHeader';
 import { SectionHeading } from '@/components/ui/custom/SectionHeading';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { ArrowRight, FileText, Code, Shield, Download, Book } from 'lucide-react';
+import { ArrowRight, FileText, Book, Download } from 'lucide-react';
 
 const Documentation = () => {
   const faqItems = [
@@ -42,120 +41,29 @@ const Documentation = () => {
               subtitle="Comprehensive documentation for developers, users, and token holders"
             />
             
-            <Tabs defaultValue="whitepaper" className="mt-6">
-              <TabsList className="grid grid-cols-4 h-auto">
-                <TabsTrigger value="whitepaper" className="py-2">Whitepaper</TabsTrigger>
-                <TabsTrigger value="contracts" className="py-2">Smart Contracts</TabsTrigger>
-                <TabsTrigger value="api" className="py-2">API Reference</TabsTrigger>
-                <TabsTrigger value="security" className="py-2">Security</TabsTrigger>
-              </TabsList>
-              
-              <TabsContent value="whitepaper" className="mt-6">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <FileText className="h-5 w-5 text-gabby" />
-                      $Gabby AI Whitepaper
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="mb-4">
-                      Our comprehensive whitepaper details the complete vision, tokenomics, technical implementation, and roadmap for the $Gabby platform.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4">
-                      <Button className="flex items-center gap-2">
-                        <Download className="h-4 w-4" />
-                        Download PDF
-                      </Button>
-                      <Button variant="outline" className="flex items-center gap-2">
-                        <Book className="h-4 w-4" />
-                        Read Online
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              </TabsContent>
-              
-              <TabsContent value="contracts" className="mt-6">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Code className="h-5 w-5 text-gabby" />
-                      Smart Contract Reference
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="mb-4">
-                      Detailed specifications for each contract in the $Gabby ecosystem:
-                    </p>
-                    <ul className="space-y-4">
-                      <li className="p-3 bg-secondary/20 rounded-md">
-                        <h4 className="font-bold mb-1">$GABBY Token (BEP-20)</h4>
-                        <p className="text-sm text-muted-foreground mb-2">Controls token supply, transfers, and token economics</p>
-                        <Button variant="outline" size="sm" className="text-xs">View on BscScan</Button>
-                      </li>
-                      <li className="p-3 bg-secondary/20 rounded-md">
-                        <h4 className="font-bold mb-1">Staking and Tier Management</h4>
-                        <p className="text-sm text-muted-foreground mb-2">Handles token locking, tier benefits, and reward distribution</p>
-                        <Button variant="outline" size="sm" className="text-xs">View on BscScan</Button>
-                      </li>
-                      <li className="p-3 bg-secondary/20 rounded-md">
-                        <h4 className="font-bold mb-1">Session Payment Escrow</h4>
-                        <p className="text-sm text-muted-foreground mb-2">Manages timed session payments with conditional releases</p>
-                        <Button variant="outline" size="sm" className="text-xs">View on BscScan</Button>
-                      </li>
-                      <li className="p-3 bg-secondary/20 rounded-md">
-                        <h4 className="font-bold mb-1">Treasury Multisig</h4>
-                        <p className="text-sm text-muted-foreground mb-2">Controls reserve funds for ecosystem growth and development</p>
-                        <Button variant="outline" size="sm" className="text-xs">View on BscScan</Button>
-                      </li>
-                    </ul>
-                  </CardContent>
-                </Card>
-              </TabsContent>
-              
-              <TabsContent value="api" className="mt-6">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Code className="h-5 w-5 text-gabby" />
-                      API Documentation
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p>
-                      Comprehensive developer resources for integrating with the $Gabby platform will be available after the initial launch phase.
-                    </p>
-                  </CardContent>
-                </Card>
-              </TabsContent>
-              
-              <TabsContent value="security" className="mt-6">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Shield className="h-5 w-5 text-gabby" />
-                      Security & Audits
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="mb-4">
-                      Our commitment to security includes rigorous testing, third-party audits, and bug bounty programs.
-                    </p>
-                    <div className="p-4 border border-amber-300 bg-amber-50 rounded-md mb-4">
-                      <h4 className="font-bold text-amber-700 mb-2">Security Notice</h4>
-                      <p className="text-amber-700 text-sm">
-                        $Gabby contracts are currently in pre-audit stage. Formal audit results will be published here before mainnet launch.
-                      </p>
-                    </div>
-                    <Button disabled className="flex items-center gap-2">
-                      <Download className="h-4 w-4" />
-                      Download Audit Reports
-                    </Button>
-                  </CardContent>
-                </Card>
-              </TabsContent>
-            </Tabs>
+            <Card className="mt-6">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <FileText className="h-5 w-5 text-gabby" />
+                  $Gabby AI Whitepaper
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="mb-4">
+                  Our comprehensive whitepaper details the complete vision, tokenomics, technical implementation, and roadmap for the $Gabby platform.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button className="flex items-center gap-2">
+                    <Download className="h-4 w-4" />
+                    Download PDF
+                  </Button>
+                  <Button variant="outline" className="flex items-center gap-2">
+                    <Book className="h-4 w-4" />
+                    Read Online
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
           </div>
           
           <div className="md:w-1/3 mt-8 md:mt-0">
