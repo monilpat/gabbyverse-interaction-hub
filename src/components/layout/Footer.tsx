@@ -1,6 +1,5 @@
-
 import { Link } from 'react-router-dom';
-import { Telegram, Twitter, Github, Linkedin, MessageSquare } from 'lucide-react';
+import { ExternalLink, Twitter, Github, Linkedin, MessageSquare } from 'lucide-react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -29,7 +28,7 @@ export function Footer() {
                 className="text-muted-foreground hover:text-gabby transition-colors"
                 aria-label="Telegram"
               >
-                <Telegram className="h-5 w-5" />
+                <ExternalLink className="h-5 w-5" />
               </a>
               <a 
                 href="#" 
@@ -151,7 +150,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-sm text-gabby hover:underline mb-6"
             >
-              <Telegram className="h-4 w-4" />
+              <ExternalLink className="h-4 w-4" />
               @RealitySpiral
             </a>
             <Link to="/contact" className="btn-primary text-sm py-2">
