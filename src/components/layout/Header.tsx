@@ -1,13 +1,14 @@
 
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, ExternalLink } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 type NavItem = {
   label: string;
   href: string;
   children?: NavItem[];
+  disabled?: boolean;
 };
 
 const navItems: NavItem[] = [
@@ -19,7 +20,7 @@ const navItems: NavItem[] = [
     children: [
       { label: 'Industry Overview', href: '/industry' },
       { label: 'Competitive Analysis', href: '/competitive' },
-      { label: 'Meet Gabby', href: '/meet' },
+      { label: 'Meet Gabby', href: '/meet', disabled: true },
     ]
   },
   { 
@@ -32,7 +33,7 @@ const navItems: NavItem[] = [
   },
   { label: 'Roadmap', href: '/roadmap' },
   { label: 'Documentation', href: '/docs' },
-  { label: 'Dashboard', href: '/dashboard' }
+  { label: 'Dashboard', href: '/dashboard', disabled: true }
 ];
 
 export function Header() {
@@ -92,13 +93,26 @@ export function Header() {
                 {item.children ? (
                   <button
                     onClick={() => toggleDropdown(item.label)}
-                    className="nav-link flex items-center"
+                    className={cn(
+                      "nav-link flex items-center",
+                      item.disabled && "opacity-50 cursor-not-allowed"
+                    )}
+                    disabled={item.disabled}
                   >
                     {item.label}
                     <ChevronDown className="ml-1 h-4 w-4" />
                   </button>
                 ) : (
-                  <Link to={item.href} className="nav-link">
+                  <Link 
+                    to={item.href} 
+                    className={cn(
+                      "nav-link",
+                      item.disabled && "opacity-50 pointer-events-none"
+                    )}
+                    aria-disabled={item.disabled}
+                    tabIndex={item.disabled ? -1 : undefined}
+                    onClick={(e) => item.disabled && e.preventDefault()}
+                  >
                     {item.label}
                   </Link>
                 )}
@@ -110,9 +124,15 @@ export function Header() {
                       <Link
                         key={child.label}
                         to={child.href}
-                        className="block px-4 py-2 text-sm text-foreground hover:bg-secondary transition-colors"
+                        className={cn(
+                          "block px-4 py-2 text-sm text-foreground hover:bg-secondary transition-colors",
+                          child.disabled && "opacity-50 pointer-events-none"
+                        )}
+                        aria-disabled={child.disabled}
+                        tabIndex={child.disabled ? -1 : undefined}
+                        onClick={(e) => child.disabled && e.preventDefault()}
                       >
-                        {child.label}
+                        {child.label} {child.disabled && "(Coming Soon)"}
                       </Link>
                     ))}
                   </div>
@@ -123,12 +143,18 @@ export function Header() {
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Link to="/dashboard" className="btn-secondary">
-              Chat with Gabby
-            </Link>
             <Link to="/tokenomics" className="btn-primary">
               Get $GABBY
             </Link>
+            <a 
+              href="https://t.me/RealitySpiral" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center text-sm text-muted-foreground hover:text-gabby"
+            >
+              <ExternalLink className="h-4 w-4 mr-1" />
+              Contact on Telegram
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -152,7 +178,11 @@ export function Header() {
                   <>
                     <button
                       onClick={() => toggleDropdown(item.label)}
-                      className="flex items-center justify-between w-full px-4 py-2 text-foreground hover:bg-secondary/50"
+                      className={cn(
+                        "flex items-center justify-between w-full px-4 py-2 text-foreground hover:bg-secondary/50",
+                        item.disabled && "opacity-50 cursor-not-allowed"
+                      )}
+                      disabled={item.disabled}
                     >
                       {item.label}
                       <ChevronDown className={cn(
@@ -166,9 +196,15 @@ export function Header() {
                           <Link
                             key={child.label}
                             to={child.href}
-                            className="block px-4 py-2 text-sm text-foreground hover:bg-secondary/50"
+                            className={cn(
+                              "block px-4 py-2 text-sm text-foreground hover:bg-secondary/50",
+                              child.disabled && "opacity-50 pointer-events-none"
+                            )}
+                            aria-disabled={child.disabled}
+                            tabIndex={child.disabled ? -1 : undefined}
+                            onClick={(e) => child.disabled && e.preventDefault()}
                           >
-                            {child.label}
+                            {child.label} {child.disabled && "(Coming Soon)"}
                           </Link>
                         ))}
                       </div>
@@ -177,20 +213,32 @@ export function Header() {
                 ) : (
                   <Link
                     to={item.href}
-                    className="block px-4 py-2 text-foreground hover:bg-secondary/50"
+                    className={cn(
+                      "block px-4 py-2 text-foreground hover:bg-secondary/50",
+                      item.disabled && "opacity-50 pointer-events-none"
+                    )}
+                    aria-disabled={item.disabled}
+                    tabIndex={item.disabled ? -1 : undefined}
+                    onClick={(e) => item.disabled && e.preventDefault()}
                   >
-                    {item.label}
+                    {item.label} {item.disabled && "(Coming Soon)"}
                   </Link>
                 )}
               </div>
             ))}
             <div className="flex flex-col space-y-2 mt-4 pt-4 border-t">
-              <Link to="/dashboard" className="btn-secondary w-full text-center">
-                Chat with Gabby
-              </Link>
               <Link to="/tokenomics" className="btn-primary w-full text-center">
                 Get $GABBY
               </Link>
+              <a 
+                href="https://t.me/RealitySpiral" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 text-muted-foreground hover:text-gabby"
+              >
+                <ExternalLink className="h-4 w-4" />
+                Contact on Telegram
+              </a>
             </div>
           </nav>
         </div>

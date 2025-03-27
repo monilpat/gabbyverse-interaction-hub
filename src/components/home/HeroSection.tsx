@@ -29,8 +29,8 @@ export function HeroSection() {
                 Get $GABBY Tokens
                 <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link to="/dashboard" className="btn-secondary flex items-center justify-center gap-2">
-                Chat With Gabby
+              <Link to="/about" className="btn-secondary flex items-center justify-center gap-2">
+                Learn More
               </Link>
             </div>
           </div>
@@ -78,8 +78,9 @@ export function HeroSection() {
                       type="text" 
                       placeholder="Type your message..." 
                       className="w-full bg-transparent text-sm focus:outline-none"
+                      disabled
                     />
-                    <button className="text-gabby">Send</button>
+                    <button className="text-gabby opacity-50 cursor-not-allowed">Send</button>
                   </div>
                 </div>
               </div>

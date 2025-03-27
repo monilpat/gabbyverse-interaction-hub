@@ -21,8 +21,8 @@ export function CtaSection() {
               Get $GABBY
               <ArrowRight className="h-4 w-4" />
             </Link>
-            <Link to="/about" className="btn-secondary flex items-center justify-center gap-2">
-              See How It Works
+            <Link to="/roadmap" className="btn-secondary flex items-center justify-center gap-2">
+              View Roadmap
             </Link>
           </div>
         </div>
