@@ -1,4 +1,3 @@
-
 import { Layout } from '@/components/layout/Layout';
 import { PageHeader } from '@/components/ui/custom/PageHeader';
 import { SectionHeading } from '@/components/ui/custom/SectionHeading';
@@ -87,7 +86,7 @@ const Roadmap = () => {
     {
       phase: "2026 – Ecosystem & Scale",
       items: [
-        "Additional Agents ("AgentVerse")",
+        'Additional Agents ("AgentVerse")',
         "Cross-Agent Rumor Staking Game",
         "AI Model Upgrades, Globalization",
         "Enterprise partnerships and API access"
